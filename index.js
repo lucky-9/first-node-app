@@ -1,18 +1,25 @@
 var rectangle = require('./rectangle.js');
 
 
-var solveRect = (l,b) =>{
-
-    console.log(`solveRect called with l = ${l} and b = ${b}`);
-    if((l<=0) || (b<=0)){
-        console.log("enter values greater than zero");
-    }
-    else{
-        console.log("The perimeter is" + rectangle.perimeter(l,b));
-        console.log("The Area is" + rectangle.area(l,b));
-    }
-
+function solveRect(l,b){
+    console.log(`solveRect() is called with l= ${l} and b = ${b} `);
+    rectangle(l, b, (err, rectangle) =>{
+        if(err){
+            console.log("ERROR  :"+err.message);
+        }
+        else{
+            console.log(`The area of the rectange with l= ${l} and b = ${b} is ${rectangle.area()}`);
+            console.log(`The perimeter of the rectange with l= ${l} and b = ${b} is ${rectangle.perimeter()}`);
+        }
+    });
 }
+
+
+
+
+
+
+
 
 
 solveRect(2,3);
